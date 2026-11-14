@@ -99,7 +99,7 @@ main {
     object-fit: cover;
 }
 
-/* Muokataan footer sivulle sopivaksi ja sijoitetaan siihen kaksi mainoskuvaa */
+/* Muokataan footer sivulle sopivaksi ja sijoitetaan siihen kaksi mainoslaatikkoa */
 footer {
     grid-area: footer;
     display: grid;
