@@ -1,0 +1,200 @@
+/* Määritetään sivun rakenne */
+.container {
+    display: grid;
+    grid-template-areas:
+        "nav header header header header"
+        "nav main main main main"
+        "nav footer footer footer footer";
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 200px 1fr 150px;
+    gap: 10px;
+    background-color: #4e5bed;
+    padding: 10px;
+    min-height: 800px;
+}
+
+header {
+    grid-area: header;
+    position: relative;
+    text-align: center;
+    background-color: #bccff1;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.header-alue {
+    position: absolute;
+    inset: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Sijoitetaan otsikkoteksti header-kuvan päälle */
+.kuvateksti {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    color: #172554;
+    z-index: 2;
+}
+
+.header-kuva {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+nav {
+    grid-area: nav;
+    padding: 10px;
+    background-color: #bccff1;
+}
+
+/* Muokataan navigaatiopalkin linkkejä ja lisätään niihin efektit */
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 8px;
+    color: #172554;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: #8fb5ea;
+    text-decoration: underline;
+}
+
+/* Varmistetaan pääsisällön sijoittuminen oikein */
+main {
+    grid-area: main;
+    display: grid;
+    padding: 10px;
+    background-color: #bccff1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.kortti-alue {
+    background-color: #8fb5ea;
+    padding: 10px;
+    min-width: 0;
+}
+
+.korttikuva {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Muokataan footer sivulle sopivaksi ja sijoitetaan siihen kaksi mainoskuvaa */
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-areas:
+        "mainos1 mainos2";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 150px;
+    gap: 10px;
+    padding: 10px;
+    background-color: #bccff1;
+}
+
+.mainos1 {
+    grid-area: mainos1;
+    background-color: #8fb5ea;
+    padding: 10px;
+}
+
+.mainoskuva {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainos2 {
+    grid-area: mainos2;
+    background-color: #8fb5ea;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Varmistetaan sivun responsiivisuus kapeammalla näytöllä katsottaessa */
+@media (max-width: 900px) {
+    .container {
+        grid-template-areas:
+            "nav header header"
+            "nav main main"
+            "nav footer footer";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto 1fr auto;
+    }
+
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(6, auto);
+    }
+
+    footer {
+        grid-template-rows: 1fr;
+    }
+}
+
+/* Varmistetaan sivun mobiiliresponsiivisuus */
+@media (max-width: 600px) {
+    .container {
+        grid-template-areas:
+            "nav header"
+            "nav main"
+            "nav footer";
+        grid-template-columns: 100px minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto;
+        align-content: stretch;
+    }
+
+    header {
+        padding: 15px;
+        font-size: clamp(10px, 3.5vw, 15px);
+    }
+
+    nav {
+        min-width: 0;
+        padding: 0;
+    }
+
+    nav a {
+        overflow-wrap: anywhere;
+        font-size: 16px;
+    }
+
+    main {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(12, auto);
+    }
+
+    .korttikuva {
+        height: auto;
+        aspect-ratio: 3 / 2;
+    }
+
+    footer {
+        grid-template-areas:
+            "mainos1"
+            "mainos2";
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+}
