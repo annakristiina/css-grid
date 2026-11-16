@@ -15,7 +15,6 @@ body {
     grid-template-rows: 200px 1fr 150px;
     gap: 10px;
     background-color: #4e5bed;
-    padding: 10px;
     min-height: 800px;
 }
 
