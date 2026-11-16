@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Määritetään sivun rakenne */
@@ -110,7 +112,7 @@ footer {
     grid-template-areas:
         "mainos1 mainos2";
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 150px;
+    grid-template-rows: auto;
     gap: 10px;
     padding: 10px;
     background-color: #bccff1;
