@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 /* Määritetään sivun rakenne */
 .container {
     display: grid;
@@ -116,6 +120,7 @@ footer {
     grid-area: mainos1;
     background-color: #8fb5ea;
     padding: 10px;
+    overflow: hidden;
 }
 
 .mainoskuva {
