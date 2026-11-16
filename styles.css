@@ -1,3 +1,9 @@
+/* Poistetaan ylimääräinen valkoinen tila sivun reunoilta */
+body {
+    margin: 0;
+    padding: 0;
+}
+
 /* Määritetään sivun rakenne */
 .container {
     display: grid;
